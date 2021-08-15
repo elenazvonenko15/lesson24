@@ -14,6 +14,7 @@ function debounce(fn, timer) {
 function show() {
     alert('Works');
 }
+
 const $element = document.querySelector('.btn');
 const delay = 2000;
 $element.addEventListener('click', debounce(show, delay));
