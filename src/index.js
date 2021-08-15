@@ -7,7 +7,6 @@ function debounce(fn, timer) {
                 fn.apply(this, args);
                 flag = false;
             });
-
         flag = true;
     };
 }
