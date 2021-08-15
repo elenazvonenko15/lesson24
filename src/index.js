@@ -1,13 +1,14 @@
 function debounce(fn, timer) {
-    let flag;
+    let flag = false;
     return (...args) => {
         if (flag) return;
+        new Promise(resolve => setTimeout(resolve, timer))
+            .then(() => {
+                fn.apply(this, args);
+                flag = false;
+            });
+
         flag = true;
-        const promise = new Promise(resolve => setTimeout(resolve, timer));
-        promise.then(() => {
-            fn.apply(this, args);
-            flag = false;
-        });
     };
 }
 
